@@ -102,6 +102,13 @@ body {
 
 }
 
+.left-content>form>div>div:focus-within {
+
+    border: 1px solid #D8DB2F;
+
+
+}
+
 .left-content>form>div>div>input[type="text"]:focus {
     outline: none;
 
@@ -114,6 +121,12 @@ body {
 
 }
 
+.left-content>form>div>div:focus-within>p {
+    background-color: #D8DB2F;
+    color: #133041;
+
+}
+
 .left-content>form .mortgage-type-container>.radio-input-container {
     display: flex;
     gap: 16px;
@@ -121,6 +134,7 @@ body {
     height: 48px;
     align-items: center;
 }
+
 
 .left-content>form .mortgage-type-container>div>input[type="radio"] {
     width: 20px;
