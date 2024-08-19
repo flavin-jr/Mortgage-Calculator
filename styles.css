@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+    background-color: #E4F4FD;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content {
+    display: flex;
+    background-color: white;
+    border-radius: 24px;
+    width: 1008px;
+}
+
+.left-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px;
+    width: 50%;
+}
+
+.left-content .header-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-content .header-container>h1 {
+    font-size: 1.5rem;
+    color: #133041;
+    font-weight: 700;
+}
+
+.left-content .header-container>button {
+    border: none;
+    background: none;
+    color: #4E6E7E;
+    border-bottom: 1px solid #4E6E7E;
+}
+
+.left-content form {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(3, auto);
+    gap: 24px;
+}
+
+.left-content>form .mortgage-amount-container {
+    grid-column: 1/3;
+    grid-row: 1/2;
+
+
+
+}
+
+.left-content>form .mortgage-type-container {
+    grid-column: 1/3;
+    grid-row: 3/4
+}
+
+
+
+.left-content>form>div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.left-content>form>div>label {
+    color: #4E6E7E;
+}
+
+.left-content>form>div>div {
+    display: flex;
+    border: 1px solid #6B94A8;
+    border-radius: 4px;
+    overflow: hidden;
+
+}
+
+
+
+.left-content>form>div>div>input[type="text"] {
+    border: none;
+    width: 100%;
+    padding: 0 16px;
+
+}
+
+.left-content>form>div>div>input[type="text"]:focus {
+    outline: none;
+
+}
+
+.left-content>form>div>div>p {
+    padding: 12px 16px;
+    background-color: #E4F4FD;
+    color: #4E6E7E;
+
+}
+
+.left-content>form .mortgage-type-container>.radio-input-container {
+    display: flex;
+    gap: 16px;
+    padding: 0px 16px;
+    height: 48px;
+    align-items: center;
+}
+
+.left-content>form .mortgage-type-container>div>input[type="radio"] {
+    width: 20px;
+    height: 20px;
+}
+
+.left-content>form .mortgage-type-container>div>label {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #133041;
+}
+
+.left-content>button {
+    border: none;
+    background-color: #D8DB2F;
+    padding: 0 40px;
+    height: 56px;
+    width: fit-content;
+    border-radius: 999px;
+    color: #133041;
+    font-size: 1.125rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
