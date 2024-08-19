@@ -21,28 +21,28 @@
         <h1>Mortgage Calculator</h1>
         <button class="clear-all-btn">Clear All</button>
       </div>
-      <form>
+      <form id="my-form">
         <div class="mortgage-amount-container">
-          <label for="">Mortgage Amount</label>
+          <label for="mortgage-amount">Mortgage Amount</label>
           <div class="input-container">
 
             <p>£</p>
-            <input type="text">
+            <input type="text" id="mortgage-amount">
           </div>
         </div>
         <div class="mortgage-term-container">
-          <label for="">Mortgage Term</label>
+          <label for="mortgage-term">Mortgage Term</label>
           <div class="input-container">
 
-            <input type="text">
+            <input type="text" id="mortgage-term">
             <p>years</p>
           </div>
 
         </div>
         <div class="interest-rate-container">
-          <label for="">Interest Rate</label>
+          <label for="interest-rate">Interest Rate</label>
           <div class="input-container">
-            <input type="text">
+            <input type="text" id="interest-rate">
             <p>%</p>
 
           </div>
@@ -64,7 +64,7 @@
           </div>
         </div>
       </form>
-      <button class="calculate-btn">
+      <button class="calculate-btn" type="submit" form="my-form">
         <img src="assets/images/icon-calculator.svg" alt="calculator icon">
         Calculate Repayments</button>
     </div>
@@ -74,7 +74,7 @@
         <h2>Results shown here</h2>
         <p>Complete the form and click “calculate repayments” to see what your monthly repayments would be.</p>
       </div>
-      <div class="after-results-container">
+      <div class="after-results-container hidden">
         <div class="results-header">
           <h2>Your results</h2>
           <p>Your results are shown below based on the information you provided. To adjust the results, edit the form

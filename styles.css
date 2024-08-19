@@ -171,13 +171,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
+    text-align: center;
     border-bottom-left-radius: 80px;
 }
 
 .right-content .before-results-container {
     display: flex;
-    /* display: none; */
     flex-direction: column;
     align-items: center;
     gap: 16px;
@@ -198,8 +198,8 @@ body {
 }
 
 .right-content .after-results-container {
-    /* display: flex; */
-    display: none;
+    display: flex;
+    /* display: none; */
     flex-direction: column;
     gap: 40px;
 
@@ -258,4 +258,28 @@ body {
 .line {
     background-color: rgba(154, 190, 213, 0.25);
     height: 1px;
+}
+
+.error-msg {
+    color: #D73328;
+    font-size: 0.875rem;
+}
+
+.input-container.error-div {
+
+    border-color: #D73328;
+}
+
+.input-container.error-div>p {
+    background-color: #D73328;
+    color: white;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.after-reset {
+    text-align: start;
+    justify-content: flex-start;
 }
