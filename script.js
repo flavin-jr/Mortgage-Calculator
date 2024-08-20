@@ -4,7 +4,8 @@ const mortgageTermInput = document.querySelector('#mortgage-term');
 const interestRateInput = document.querySelector('#interest-rate');
 const radioInputs = document.querySelectorAll('input[type="radio"]');
 const calculateBtn = document.querySelector('.calculate-btn');
-const rightContent = document.querySelector('.right-content')
+const rightContent = document.querySelector('.right-content');
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const readyToSubmit = checkInputs();
@@ -12,9 +13,9 @@ form.addEventListener('submit', (e) => {
     if (readyToSubmit) {
         const [amount, term, rate, type] = readyToSubmit;
         calculate(amount, term, rate, type)
+
         changeRightContent()
     }
-    console.log('rodei')
 })
 function checkRadioInputs() {
     const mortgageTypeInputChecked = document.querySelector('input[name = "mortgage-type"]:checked');
@@ -119,4 +120,6 @@ function calculate(amount, term, rate, type) {
 
     console.log(monthlyPayment.toFixed(2))
 }
+
+
 
