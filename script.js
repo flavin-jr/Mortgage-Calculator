@@ -6,6 +6,23 @@ const radioInputs = document.querySelectorAll('input[type="radio"]');
 const calculateBtn = document.querySelector('.calculate-btn');
 const rightContent = document.querySelector('.right-content');
 
+
+mortgageAmountInput.addEventListener('input', () => {
+    let value = mortgageAmountInput.value;
+
+    value = value.replace(/,/g, '');
+    if (value === "") {
+        mortgageAmountInput.value = "";
+        return;
+    }
+    mortgageAmountInput.value = new Intl.NumberFormat('en-US').format(value)
+})
+
+
+
+
+
+
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const readyToSubmit = checkInputs();
