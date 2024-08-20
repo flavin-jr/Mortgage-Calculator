@@ -5,7 +5,8 @@ const interestRateInput = document.querySelector('#interest-rate');
 const radioInputs = document.querySelectorAll('input[type="radio"]');
 const calculateBtn = document.querySelector('.calculate-btn');
 const rightContent = document.querySelector('.right-content');
-
+const monthlyPaymentTextContent = document.querySelector('#monthly-repayments')
+const totalOverTheTermTextContent = document.querySelector('#total-over-the-term')
 
 mortgageAmountInput.addEventListener('input', () => {
     let value = mortgageAmountInput.value;
@@ -91,9 +92,10 @@ form.addEventListener('submit', (e) => {
 
     if (readyToSubmit) {
         const [amount, term, rate, type] = readyToSubmit;
-        calculate(amount, term, rate, type)
 
-        changeRightContent()
+        const [monthlyPayment, totalRepayOverTheTerm] = calculate(amount, term, rate, type)
+
+        changeRightContent(monthlyPayment, totalRepayOverTheTerm)
     }
 })
 function checkRadioInputs() {
@@ -168,13 +170,16 @@ function setErrorFor(input) {
 
 }
 
-function changeRightContent() {
+function changeRightContent(monthlyPayment, totalRepayOverTheTerm) {
     const children = [...rightContent.children]
 
     if (children[1].classList.contains('hidden')) {
         rightContent.classList.toggle('after-reset')
         children[1].classList.toggle('hidden')
         children[0].classList.toggle('hidden')
+        monthlyPaymentTextContent.innerText = `£${monthlyPayment}`
+        totalOverTheTermTextContent.innerText = `£${totalRepayOverTheTerm}`
+
     }
     else {
         rightContent.classList.toggle('after-reset')
@@ -201,8 +206,13 @@ function calculate(amount, term, rate, type) {
 
         monthlyPayment = amount * (rate / 100);
     }
+    let totalRepayOverTheTerm = (monthlyPayment * term * 12).toFixed(2);
+    monthlyPayment = monthlyPayment.toFixed(2);
 
-    console.log(monthlyPayment.toFixed(2))
+    monthlyPayment = new Intl.NumberFormat('en-US').format(monthlyPayment)
+    totalRepayOverTheTerm = new Intl.NumberFormat('en-US').format(totalRepayOverTheTerm)
+
+    return [monthlyPayment, totalRepayOverTheTerm]
 }
 
 
