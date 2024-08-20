@@ -51,6 +51,7 @@ body {
     background: none;
     color: #4E6E7E;
     border-bottom: 1px solid #4E6E7E;
+    cursor: pointer;
 }
 
 .left-content form {
@@ -161,6 +162,8 @@ body {
     align-items: center;
     gap: 12px;
 }
+
+
 
 /* Right Side */
 

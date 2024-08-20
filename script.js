@@ -4,6 +4,7 @@ const mortgageTermInput = document.querySelector('#mortgage-term');
 const interestRateInput = document.querySelector('#interest-rate');
 const radioInputs = document.querySelectorAll('input[type="radio"]');
 const calculateBtn = document.querySelector('.calculate-btn');
+const clearAllBtn = document.querySelector('.clear-all-btn')
 const rightContent = document.querySelector('.right-content');
 const monthlyPaymentTextContent = document.querySelector('#monthly-repayments')
 const totalOverTheTermTextContent = document.querySelector('#total-over-the-term')
@@ -82,7 +83,19 @@ for (const radioInput of radioInputs) {
 
 
 
+const clearAll = () => {
+    mortgageAmountInput.value = ''
+    mortgageTermInput.value = ''
+    interestRateInput.value = ''
+    for (const radioInput of radioInputs) {
+        radioInput.checked = false;
+    }
+}
 
+clearAllBtn.addEventListener('click', () => {
+    clearAll()
+    changeRightContent()
+})
 
 
 
@@ -170,9 +183,15 @@ function setErrorFor(input) {
 
 }
 
-function changeRightContent(monthlyPayment, totalRepayOverTheTerm) {
+function changeRightContent(monthlyPayment = null, totalRepayOverTheTerm = null) {
     const children = [...rightContent.children]
+    if ((monthlyPayment && totalRepayOverTheTerm) === null) {
+        rightContent.classList.toggle('after-reset')
 
+        children[1].classList.toggle('hidden')
+        children[0].classList.toggle('hidden')
+        return;
+    }
     if (children[1].classList.contains('hidden')) {
         rightContent.classList.toggle('after-reset')
         children[1].classList.toggle('hidden')
