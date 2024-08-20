@@ -11,12 +11,74 @@ mortgageAmountInput.addEventListener('input', () => {
     let value = mortgageAmountInput.value;
 
     value = value.replace(/,/g, '');
+    if (isNaN(value)) {
+        mortgageAmountInput.value = "";
+        return;
+    }
     if (value === "") {
         mortgageAmountInput.value = "";
         return;
     }
+    const parentDivChildren = [...mortgageAmountInput.parentNode.parentNode.children]
+    if (parentDivChildren.length > 2) {
+        // remove o ultimo filho, que sempre vai ser o spanError
+        mortgageAmountInput.parentNode.parentNode.removeChild(parentDivChildren.pop())
+        mortgageAmountInput.parentNode.classList.toggle('error-div')
+    }
     mortgageAmountInput.value = new Intl.NumberFormat('en-US').format(value)
 })
+
+mortgageTermInput.addEventListener('input', () => {
+    let value = mortgageTermInput.value;
+
+    if (isNaN(value)) {
+        mortgageTermInput.value = "";
+        return;
+    }
+
+    const parentDivChildren = [...mortgageTermInput.parentNode.parentNode.children]
+    if (parentDivChildren.length > 2) {
+        // remove o ultimo filho, que sempre vai ser o spanError
+        mortgageTermInput.parentNode.parentNode.removeChild(parentDivChildren.pop())
+        mortgageTermInput.parentNode.classList.toggle('error-div')
+
+    }
+})
+
+interestRateInput.addEventListener('input', () => {
+    let value = interestRateInput.value;
+
+    if (isNaN(value)) {
+        interestRateInput.value = "";
+        return;
+    }
+
+    const parentDivChildren = [...interestRateInput.parentNode.parentNode.children]
+    if (parentDivChildren.length > 2) {
+        // remove o ultimo filho, que sempre vai ser o spanError
+        interestRateInput.parentNode.parentNode.removeChild(parentDivChildren.pop())
+        interestRateInput.parentNode.classList.toggle('error-div')
+
+    }
+})
+
+for (const radioInput of radioInputs) {
+
+    radioInput.addEventListener('input', () => {
+
+
+        const parentDivChildren = [...radioInput.parentNode.parentNode.children]
+        console.log(parentDivChildren)
+        if (parentDivChildren.length > 3) {
+            // remove o ultimo filho, que sempre vai ser o spanError
+            radioInput.parentNode.parentNode.removeChild(parentDivChildren.pop())
+
+        }
+    })
+}
+
+
+
 
 
 
@@ -42,7 +104,7 @@ function checkRadioInputs() {
 
 
 function checkInputs() {
-    const mortgageAmountValue = mortgageAmountInput.value;
+    let mortgageAmountValue = mortgageAmountInput.value;
     const mortgageTermValue = mortgageTermInput.value;
     const interestRateValue = interestRateInput.value;
     const radioInputsList = [...radioInputs]
@@ -63,11 +125,16 @@ function checkInputs() {
     if (mortgageAmountValue === '' && mortgageTermValue === '' && interestRateValue === '' && !radioInputChecked) {
         return false
     }
+
+    // retirar a ',' da string que contem o numero
+    mortgageAmountValue = mortgageAmountValue.replace(/,/g, '')
+
     if (isNaN(mortgageAmountValue) || isNaN(mortgageTermValue) || isNaN(interestRateValue)) {
         return false
     }
 
     const mortgageValues = [parseFloat(mortgageAmountValue), parseInt(mortgageTermValue), parseFloat(interestRateValue), radioInputChecked.value]
+
     return mortgageValues
 
 }
@@ -102,18 +169,18 @@ function setErrorFor(input) {
 }
 
 function changeRightContent() {
-    const childrens = [...rightContent.children]
+    const children = [...rightContent.children]
 
-    if (childrens[1].classList.contains('hidden')) {
+    if (children[1].classList.contains('hidden')) {
         rightContent.classList.toggle('after-reset')
-        childrens[1].classList.toggle('hidden')
-        childrens[0].classList.toggle('hidden')
+        children[1].classList.toggle('hidden')
+        children[0].classList.toggle('hidden')
     }
     else {
         rightContent.classList.toggle('after-reset')
 
-        childrens[1].classList.toggle('hidden')
-        childrens[0].classList.toggle('hidden')
+        children[1].classList.toggle('hidden')
+        children[0].classList.toggle('hidden')
     }
 
 
